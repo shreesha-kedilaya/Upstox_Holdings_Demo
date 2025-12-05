@@ -12,4 +12,10 @@ protocol HoldingServicable: AnyObject, Sendable {
     func fetchItems() async throws -> [Holding]
     
     func getHoldings() async -> [Holding]
+    
+    func fetchFromLocalStorage() async throws -> [Holding]
+    
+    func deleteHoldings() async throws
+    
+    func saveAllToLocal() async throws
 }

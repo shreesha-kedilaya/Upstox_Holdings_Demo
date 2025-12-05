@@ -59,26 +59,28 @@ private extension HoldingViewModel {
             guard let self else { return }
             
             // 1. Load cache first
-//            await self.fetchLocalStorage()
+            await self.fetchLocalStorage()
             
+            try Task.checkCancellation()
             // 2. Call API
-            await self.callApi()
+//            await self.callApi()
             print("View recieved result")
             self.showLoader.send(false)
-        }
+        }.store(in: &subscriptions)
     }
     
-//    func fetchLocalStorage() async {
-//        do {
-//            let localCache = try holdingService.fetchFromLocalStorage()
-//            let sorted = Self.getSorted(items: localCache)
-//            currentDisplayItems.send(sorted)
-//            updateSummary(with: sorted)
-//            showError.send((false, ""))
-//        } catch {
-//            debugPrint("Holding local fetch error:", error)
-//        }
-//    }
+    func fetchLocalStorage() async {
+        do {
+            let localCache = try await holdingService.fetchFromLocalStorage()
+            let sorted = Self.getSorted(items: localCache)
+            currentDisplayItems.send(sorted.map{ $0.getViewModel() })
+            updateSummary(with: sorted)
+            showError.send((false, ""))
+            print(" testing Completed")
+        } catch {
+            debugPrint("Holding local fetch error:", error)
+        }
+    }
     
     func callApi() async {
         do {
@@ -145,5 +147,19 @@ extension Formatter {
 extension Double {
     func fmt() -> String {
         Formatter.currencyFormatter.string(from: self as NSNumber) ?? "\(self)"
+    }
+}
+
+
+public protocol TaskCancellable: Hashable, Sendable {
+    func cancel()
+}
+
+extension Task: TaskCancellable {}
+
+
+extension Task {
+    public func store(in set: inout Set<AnyCancellable>) {
+        set.insert(AnyCancellable(cancel))
     }
 }

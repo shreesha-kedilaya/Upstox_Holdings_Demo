@@ -23,9 +23,11 @@ actor HoldingService: HoldingServicable {
     private var holdings: [Holding] = []
     
     private var networkService: Networkable
+    private var dbService: HoldingsDBServicing
     
-    init(networkService: Networkable) {
+    init(networkService: Networkable, dbService: HoldingsDBServicing) {
         self.networkService = networkService
+        self.dbService = dbService
     }
     
     // MARK: - Network
@@ -39,11 +41,26 @@ actor HoldingService: HoldingServicable {
             
             let response: HoldingsResponse = try await networkService.sendRequest(endpoint: HoldingEndpoint(task: .request))
             self.holdings = response.data.userHolding
-                        
+            try await self.saveAllToLocal()
             return holdings
         } catch {
             throw error
         }
+    }
+    
+    func fetchFromLocalStorage() async throws -> [Holding] {
+        let holdingsDB = try await self.dbService.fetchAllHoldings()
+        
+        let allHoldings = holdingsDB.compactMap { Holding(from: $0) }
+        return allHoldings
+    }
+    
+    func deleteHoldings() async throws {
+        try await dbService.deleteHoldings()
+    }
+    
+    func saveAllToLocal() async throws {
+        try await self.dbService.replaceHoldings(with: self.holdings.compactMap { HoldingDBModel(from: $0) } )
     }
 }
 

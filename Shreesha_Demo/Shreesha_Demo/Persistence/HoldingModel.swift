@@ -5,6 +5,17 @@
 //  Created by Shreesha Kedlaya on 04/12/25.
 //
 import Foundation
+
+
+struct HoldingsResponse: Codable, Sendable {
+    let data: HoldingsData
+}
+
+struct HoldingsData: Codable, Sendable {
+    let userHolding: [Holding]
+}
+//
+
 struct Holding: Codable, Sendable {
     
     let symbol: String
@@ -80,4 +91,24 @@ struct Holding: Codable, Sendable {
         self = holding
     }
     
+}
+
+extension Holding {
+    init?(from dbModel: HoldingDBModel) {
+        // Validate symbol (required)
+        guard
+            let symbol = dbModel.symbol,
+            symbol.isEmpty == false
+        else {
+            return nil
+        }
+        
+        self.init(
+            symbol: symbol,
+            quantity: dbModel.quantity,
+            ltp: dbModel.ltp,
+            avgPrice: dbModel.avgPrice,
+            close: dbModel.close
+        )
+    }
 }

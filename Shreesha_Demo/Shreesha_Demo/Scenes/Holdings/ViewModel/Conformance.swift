@@ -13,11 +13,13 @@ import UIKit
 
 // MARK: - UI Contracts
 
+@MainActor
 protocol HoldingServiceUIInput: AnyObject {
     var viewModel: HoldingServiceUIOutput { get }
     var viewLoad: AnyPublisher<Void, Never> { get }
 }
 
+@MainActor
 protocol HoldingServiceUIOutput: AnyObject {
     var input: HoldingServiceUIInput? { get set }
     

@@ -11,7 +11,6 @@ import SwiftData
 protocol DatabaseServicable: AnyObject, Sendable {
     var container: ModelContainer? { get }
     var context: ModelContext? { get }
-    
 }
 
 final class DatabaseService: DatabaseServicable, @unchecked Sendable {
@@ -20,15 +19,15 @@ final class DatabaseService: DatabaseServicable, @unchecked Sendable {
     var context: ModelContext?
 
     init() {
-//        do {
-//            container = try ModelContainer(for: Holding.self)
-//            if let container {
-//                context = ModelContext(container)
-//                context?.autosaveEnabled = true
-//            }
-//        } catch {
-//            print("Error initializing database container:", error)
-//            // Consider throwing an error or providing a fallback mechanism here
-//        }
+        do {
+            container = try ModelContainer(for: HoldingDBModel.self)
+            if let container {
+                context = ModelContext(container)
+                context?.autosaveEnabled = true
+            }
+        } catch {
+            print("Error initializing database container:", error)
+            // Consider throwing an error or providing a fallback mechanism here
+        }
     }
 }

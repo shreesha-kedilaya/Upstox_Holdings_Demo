@@ -22,7 +22,12 @@ final class CentralNavigationHandler {
     
     func setupInitialFlow(window: UIWindow) {
         
-        let networkService = HoldingService(networkService: NetworkService())
+        let dbService = DatabaseService.shared
+        guard let container = dbService.container else {
+            return
+        }
+        let holdingDBService = HoldingsDBService(modelContainer: container)
+        let networkService = HoldingService(networkService: NetworkService(), dbService: holdingDBService)
         let viewModel = HoldingViewModel(holdingService: networkService)
         let viewController = HoldingsViewController(viewModel: viewModel)
         viewModel.input = viewController
