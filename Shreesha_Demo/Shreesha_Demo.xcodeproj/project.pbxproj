@@ -7,60 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		227A27142EE1996600B1F8ED /* LayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 227A27132EE1996600B1F8ED /* LayoutKit */; };
-		227A27172EE1997500B1F8ED /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 227A27162EE1997500B1F8ED /* Networking */; };
+		227A28662EE2ACCB00B1F8ED /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 227A28652EE2ACCB00B1F8ED /* Networking */; };
+		227A28692EE2ACD000B1F8ED /* LayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 227A28682EE2ACD000B1F8ED /* LayoutKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		227A26FA2EE1992B00B1F8ED /* Holdings_upstox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Holdings_upstox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		227A28212EE2AC9C00B1F8ED /* Shreesha_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shreesha_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		227A270C2EE1992C00B1F8ED /* Exceptions for "Holdings_upstox" folder in "Holdings_upstox" target */ = {
+		227A28332EE2AC9E00B1F8ED /* Exceptions for "Shreesha_Demo" folder in "Shreesha_Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 227A26F92EE1992B00B1F8ED /* Holdings_upstox */;
+			target = 227A28202EE2AC9C00B1F8ED /* Shreesha_Demo */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		227A26FC2EE1992B00B1F8ED /* Holdings_upstox */ = {
+		227A28232EE2AC9C00B1F8ED /* Shreesha_Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				227A270C2EE1992C00B1F8ED /* Exceptions for "Holdings_upstox" folder in "Holdings_upstox" target */,
+				227A28332EE2AC9E00B1F8ED /* Exceptions for "Shreesha_Demo" folder in "Shreesha_Demo" target */,
 			);
-			path = Holdings_upstox;
+			path = Shreesha_Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		227A26F72EE1992B00B1F8ED /* Frameworks */ = {
+		227A281E2EE2AC9C00B1F8ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227A27172EE1997500B1F8ED /* Networking in Frameworks */,
-				227A27142EE1996600B1F8ED /* LayoutKit in Frameworks */,
+				227A28662EE2ACCB00B1F8ED /* Networking in Frameworks */,
+				227A28692EE2ACD000B1F8ED /* LayoutKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		227A26F12EE1992B00B1F8ED = {
+		227A28182EE2AC9C00B1F8ED = {
 			isa = PBXGroup;
 			children = (
-				227A26FC2EE1992B00B1F8ED /* Holdings_upstox */,
-				227A26FB2EE1992B00B1F8ED /* Products */,
+				227A28232EE2AC9C00B1F8ED /* Shreesha_Demo */,
+				227A28222EE2AC9C00B1F8ED /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		227A26FB2EE1992B00B1F8ED /* Products */ = {
+		227A28222EE2AC9C00B1F8ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				227A26FA2EE1992B00B1F8ED /* Holdings_upstox.app */,
+				227A28212EE2AC9C00B1F8ED /* Shreesha_Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,70 +68,70 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		227A26F92EE1992B00B1F8ED /* Holdings_upstox */ = {
+		227A28202EE2AC9C00B1F8ED /* Shreesha_Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 227A270D2EE1992C00B1F8ED /* Build configuration list for PBXNativeTarget "Holdings_upstox" */;
+			buildConfigurationList = 227A28342EE2AC9E00B1F8ED /* Build configuration list for PBXNativeTarget "Shreesha_Demo" */;
 			buildPhases = (
-				227A26F62EE1992B00B1F8ED /* Sources */,
-				227A26F72EE1992B00B1F8ED /* Frameworks */,
-				227A26F82EE1992B00B1F8ED /* Resources */,
+				227A281D2EE2AC9C00B1F8ED /* Sources */,
+				227A281E2EE2AC9C00B1F8ED /* Frameworks */,
+				227A281F2EE2AC9C00B1F8ED /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				227A26FC2EE1992B00B1F8ED /* Holdings_upstox */,
+				227A28232EE2AC9C00B1F8ED /* Shreesha_Demo */,
 			);
-			name = Holdings_upstox;
+			name = Shreesha_Demo;
 			packageProductDependencies = (
-				227A27132EE1996600B1F8ED /* LayoutKit */,
-				227A27162EE1997500B1F8ED /* Networking */,
+				227A28652EE2ACCB00B1F8ED /* Networking */,
+				227A28682EE2ACD000B1F8ED /* LayoutKit */,
 			);
-			productName = Holdings_upstox;
-			productReference = 227A26FA2EE1992B00B1F8ED /* Holdings_upstox.app */;
+			productName = Shreesha_Demo;
+			productReference = 227A28212EE2AC9C00B1F8ED /* Shreesha_Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		227A26F22EE1992B00B1F8ED /* Project object */ = {
+		227A28192EE2AC9C00B1F8ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					227A26F92EE1992B00B1F8ED = {
+					227A28202EE2AC9C00B1F8ED = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
 			};
-			buildConfigurationList = 227A26F52EE1992B00B1F8ED /* Build configuration list for PBXProject "Holdings_upstox" */;
+			buildConfigurationList = 227A281C2EE2AC9C00B1F8ED /* Build configuration list for PBXProject "Shreesha_Demo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 227A26F12EE1992B00B1F8ED;
+			mainGroup = 227A28182EE2AC9C00B1F8ED;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				227A27122EE1996600B1F8ED /* XCLocalSwiftPackageReference "Packages/LayoutKit" */,
-				227A27152EE1997500B1F8ED /* XCLocalSwiftPackageReference "Packages/Networking" */,
+				227A28642EE2ACCB00B1F8ED /* XCLocalSwiftPackageReference "../Packages/Networking" */,
+				227A28672EE2ACD000B1F8ED /* XCLocalSwiftPackageReference "../Packages/LayoutKit" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 227A26FB2EE1992B00B1F8ED /* Products */;
+			productRefGroup = 227A28222EE2AC9C00B1F8ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				227A26F92EE1992B00B1F8ED /* Holdings_upstox */,
+				227A28202EE2AC9C00B1F8ED /* Shreesha_Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		227A26F82EE1992B00B1F8ED /* Resources */ = {
+		227A281F2EE2AC9C00B1F8ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,7 +141,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		227A26F62EE1992B00B1F8ED /* Sources */ = {
+		227A281D2EE2AC9C00B1F8ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,7 +151,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		227A270E2EE1992C00B1F8ED /* Debug */ = {
+		227A28352EE2AC9E00B1F8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -159,7 +159,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Holdings_upstox/Info.plist;
+				INFOPLIST_FILE = Shreesha_Demo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -170,20 +170,19 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shreesha.Holdings-upstox";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shreesha.Shreesha-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		227A270F2EE1992C00B1F8ED /* Release */ = {
+		227A28362EE2AC9E00B1F8ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -191,7 +190,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Holdings_upstox/Info.plist;
+				INFOPLIST_FILE = Shreesha_Demo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -202,20 +201,19 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shreesha.Holdings-upstox";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shreesha.Shreesha-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		227A27102EE1992C00B1F8ED /* Debug */ = {
+		227A28372EE2AC9E00B1F8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,7 +276,7 @@
 			};
 			name = Debug;
 		};
-		227A27112EE1992C00B1F8ED /* Release */ = {
+		227A28382EE2AC9E00B1F8ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -337,20 +335,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		227A26F52EE1992B00B1F8ED /* Build configuration list for PBXProject "Holdings_upstox" */ = {
+		227A281C2EE2AC9C00B1F8ED /* Build configuration list for PBXProject "Shreesha_Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				227A27102EE1992C00B1F8ED /* Debug */,
-				227A27112EE1992C00B1F8ED /* Release */,
+				227A28372EE2AC9E00B1F8ED /* Debug */,
+				227A28382EE2AC9E00B1F8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		227A270D2EE1992C00B1F8ED /* Build configuration list for PBXNativeTarget "Holdings_upstox" */ = {
+		227A28342EE2AC9E00B1F8ED /* Build configuration list for PBXNativeTarget "Shreesha_Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				227A270E2EE1992C00B1F8ED /* Debug */,
-				227A270F2EE1992C00B1F8ED /* Release */,
+				227A28352EE2AC9E00B1F8ED /* Debug */,
+				227A28362EE2AC9E00B1F8ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -358,26 +356,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		227A27122EE1996600B1F8ED /* XCLocalSwiftPackageReference "Packages/LayoutKit" */ = {
+		227A28642EE2ACCB00B1F8ED /* XCLocalSwiftPackageReference "../Packages/Networking" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/LayoutKit;
+			relativePath = ../Packages/Networking;
 		};
-		227A27152EE1997500B1F8ED /* XCLocalSwiftPackageReference "Packages/Networking" */ = {
+		227A28672EE2ACD000B1F8ED /* XCLocalSwiftPackageReference "../Packages/LayoutKit" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/Networking;
+			relativePath = ../Packages/LayoutKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		227A27132EE1996600B1F8ED /* LayoutKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LayoutKit;
-		};
-		227A27162EE1997500B1F8ED /* Networking */ = {
+		227A28652EE2ACCB00B1F8ED /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
 		};
+		227A28682EE2ACD000B1F8ED /* LayoutKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LayoutKit;
+		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 227A26F22EE1992B00B1F8ED /* Project object */;
+	rootObject = 227A28192EE2AC9C00B1F8ED /* Project object */;
 }
