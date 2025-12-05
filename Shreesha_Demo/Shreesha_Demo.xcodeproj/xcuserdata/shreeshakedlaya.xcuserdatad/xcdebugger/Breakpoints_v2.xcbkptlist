@@ -26,35 +26,5 @@
             breakpointStackSelectionBehavior = "1">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.IDETestFailureBreakpoint">
-         <BreakpointContent
-            uuid = "C14A9F87-E6BE-470E-A7AB-04D80CCF61FA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1">
-            <Locations>
-               <Location
-                  uuid = "C14A9F87-E6BE-470E-A7AB-04D80CCF61FA - 461ae959105c4af4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_XCTFailureBreakpoint"
-                  moduleName = "XCTestCore"
-                  usesParentBreakpointCondition = "Yes">
-               </Location>
-               <Location
-                  uuid = "C14A9F87-E6BE-470E-A7AB-04D80CCF61FA - a8fcaf08e5397936"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testing.failureBreakpoint() -&gt; ()"
-                  moduleName = "Testing"
-                  usesParentBreakpointCondition = "Yes">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

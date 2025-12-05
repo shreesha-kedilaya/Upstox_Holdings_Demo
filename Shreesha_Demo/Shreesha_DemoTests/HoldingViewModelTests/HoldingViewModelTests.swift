@@ -25,7 +25,7 @@ final class HoldingViewModelTests: XCTestCase {
 
     override func tearDown() {
         cancellables = nil
-//        viewModel = nil
+        viewModel = nil
         super.tearDown()
     }
 
@@ -42,10 +42,6 @@ final class HoldingViewModelTests: XCTestCase {
     }
 
     // MARK: - Tests
-    
-    func test_something() {
-        XCTAssertEqual(2, 2, "Should emit 2 row view models")
-    }
 
     /// When local storage has holdings, `setup` + `viewLoad` should:
     /// - read from local storage
@@ -131,7 +127,6 @@ final class HoldingViewModelTests: XCTestCase {
         let summaryExpectation = expectation(description: "nil summary emitted")
         self.viewModel = viewModel
         viewModel.currentDisplayItems
-            .dropFirst()
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { items in
@@ -142,7 +137,6 @@ final class HoldingViewModelTests: XCTestCase {
             .store(in: &cancellables)
 
         viewModel.summaryDisplayItem
-            .dropFirst()
             .sink { summary in
                 XCTAssertNil(summary, "Summary should be nil when there are no holdings")
                 summaryExpectation.fulfill()
@@ -223,4 +217,91 @@ final class HoldingViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.currentDisplayItems.value.isEmpty)
         XCTAssertNil(viewModel.summaryDisplayItem.value)
     }
+    
+    // MARK: - Server path tests
+
+    /// When local storage is empty and the server returns an empty list,
+    /// we expect:
+    /// - no crash
+    /// - items remain empty
+    /// - summary stays nil
+    /// - an error signal is shown to the UI (showError with show == true)
+    func testServerReturnsEmpty_keepsEmptyStateAndShowsError() {
+        // Arrange
+        let mockService = MockHoldingService()
+        mockService.fetchFromLocalStorageResult = .success([])   // force server path
+        mockService.fetchItemsResult = .success([])              // server returns empty
+        mockService.getHoldingsResult = []                       // nothing saved
+
+        let errorExpectation = expectation(description: "showError emitted")
+        
+        let (viewModel, _, mockInput) = makeViewModel(service: mockService)
+        self.viewModel = viewModel
+        // We only care that an error is *shown*, not the exact message
+        viewModel.showError
+            .sink { (show, message) in
+                
+                print("Shreesha show \(show) \(message)")
+                if show {
+                    errorExpectation.fulfill()
+                }
+            }
+            .store(in: &cancellables)
+
+        // Act
+        mockInput.viewLoadSubject.send(())
+
+        // Assert
+        wait(for: [errorExpectation], timeout: 1.0)
+        XCTAssertTrue(viewModel.currentDisplayItems.value.isEmpty, "Items should stay empty on empty server response")
+        XCTAssertNil(viewModel.summaryDisplayItem.value, "Summary should be nil when there are no holdings")
+    }
+
+    /// When local storage is empty and the server call fails,
+    /// we expect:
+    /// - `currentDisplayItems` to complete with a failure
+    /// - `showError` to emit a visible error state
+    /// - items remain empty and summary nil
+    func testServerError_completesWithFailureAndShowsError() {
+        // Arrange
+        enum MockApiError: Error { case apiFailed }
+        let mockService = MockHoldingService()
+        
+        mockService.fetchFromLocalStorageResult = .success([])        // force server path
+        mockService.fetchItemsResult = .failure(MockApiError.apiFailed)
+
+        let completionExpectation = expectation(description: "currentDisplayItems completed with error")
+        let errorExpectation = expectation(description: "showError emitted for API error")
+
+        let (viewModel, _, mockInput) = makeViewModel(service: mockService)
+        self.viewModel = viewModel
+        // Listen for completion failure on currentDisplayItems
+        viewModel.currentDisplayItems
+            .sink { completion in
+                if case .failure = completion {
+                    completionExpectation.fulfill()
+                }
+            } receiveValue: { _ in
+                // we don't care about values here
+            }
+            .store(in: &cancellables)
+
+        // Listen for UI error signal
+        viewModel.showError
+            .sink { (show, message) in
+                if show {
+                    errorExpectation.fulfill()
+                }
+            }
+            .store(in: &cancellables)
+
+        // Act
+        mockInput.viewLoadSubject.send(())
+
+        // Assert
+        wait(for: [completionExpectation, errorExpectation], timeout: 1.0)
+        XCTAssertTrue(viewModel.currentDisplayItems.value.isEmpty, "Items should still be empty when API fails")
+        XCTAssertNil(viewModel.summaryDisplayItem.value, "Summary should be nil when API fails")
+    }
+
 }

@@ -73,12 +73,20 @@ private extension HoldingViewModel {
         do {
             let localCache = try await holdingService.fetchFromLocalStorage()
             let sorted = Self.getSorted(items: localCache)
-            currentDisplayItems.send(sorted.map{ $0.getViewModel() })
-            updateSummary(with: sorted)
-            showError.send((false, ""))
-            print(" testing Completed")
+            updateItems(sorted: sorted)
         } catch {
             debugPrint("Holding local fetch error:", error)
+        }
+    }
+    
+    func updateItems(sorted: [Holding]) {
+        if sorted.isEmpty {
+            currentDisplayItems.send(completion: .failure(NSError(domain: "Something went wrong", code: 2)))
+            showError.send((true, "Failed to load holdings"))
+        } else {
+            currentDisplayItems.send(sorted.map { $0.getViewModel() })
+            updateSummary(with: sorted)
+            showError.send((false, ""))
         }
     }
     
@@ -86,9 +94,8 @@ private extension HoldingViewModel {
         do {
             let items = try await holdingService.fetchItems()
             let sorted = Self.getSorted(items: items)
-            currentDisplayItems.send(sorted.map { $0.getViewModel() })
-            updateSummary(with: sorted)
-            showError.send((false, ""))
+            
+            updateItems(sorted: sorted)
         } catch {
             let items = await holdingService.getHoldings()
             
