@@ -63,8 +63,7 @@ private extension HoldingViewModel {
             
             try Task.checkCancellation()
             // 2. Call API
-//            await self.callApi()
-            print("View recieved result")
+            await self.callApi()
             self.showLoader.send(false)
         }.store(in: &subscriptions)
     }
@@ -138,35 +137,5 @@ private extension HoldingViewModel {
         )
         
         summaryDisplayItem.send(summaryVM)
-    }
-}
-
-extension Formatter {
-    static let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = "₹ "
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-}
-
-extension Double {
-    func fmt() -> String {
-        Formatter.currencyFormatter.string(from: self as NSNumber) ?? "\(self)"
-    }
-}
-
-
-public protocol TaskCancellable: Hashable, Sendable {
-    func cancel()
-}
-
-extension Task: TaskCancellable {}
-
-
-extension Task {
-    public func store(in set: inout Set<AnyCancellable>) {
-        set.insert(AnyCancellable(cancel))
     }
 }

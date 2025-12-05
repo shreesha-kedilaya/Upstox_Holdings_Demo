@@ -209,8 +209,6 @@ final class HoldingViewModelTests: XCTestCase {
 
         // WHEN
         input.viewLoadSubject.send(())
-
-
         // THEN: wait a bit and ensure no events came
         wait(for: [itemsExpectation], timeout: 0.5)
 
@@ -239,9 +237,9 @@ final class HoldingViewModelTests: XCTestCase {
         self.viewModel = viewModel
         // We only care that an error is *shown*, not the exact message
         viewModel.showError
+            .dropFirst()
             .sink { (show, message) in
                 
-                print("Shreesha show \(show) \(message)")
                 if show {
                     errorExpectation.fulfill()
                 }
@@ -277,6 +275,7 @@ final class HoldingViewModelTests: XCTestCase {
         self.viewModel = viewModel
         // Listen for completion failure on currentDisplayItems
         viewModel.currentDisplayItems
+            .dropFirst()
             .sink { completion in
                 if case .failure = completion {
                     completionExpectation.fulfill()
@@ -288,6 +287,7 @@ final class HoldingViewModelTests: XCTestCase {
 
         // Listen for UI error signal
         viewModel.showError
+            .dropFirst()
             .sink { (show, message) in
                 if show {
                     errorExpectation.fulfill()

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 @globalActor
 actor CryptoGlobalActor: GlobalActor {
@@ -134,4 +135,35 @@ public extension UIApplication {
         return UIEdgeInsets.zero
     }
 
+}
+
+
+extension Formatter {
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "₹ "
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+}
+
+extension Double {
+    func fmt() -> String {
+        Formatter.currencyFormatter.string(from: self as NSNumber) ?? "\(self)"
+    }
+}
+
+
+public protocol TaskCancellable: Hashable, Sendable {
+    func cancel()
+}
+
+extension Task: TaskCancellable {}
+
+
+extension Task {
+    public func store(in set: inout Set<AnyCancellable>) {
+        set.insert(AnyCancellable(cancel))
+    }
 }
