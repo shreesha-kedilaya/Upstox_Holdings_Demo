@@ -25,7 +25,7 @@ final class HoldingSummaryView: BaseView {
     private let currentValueTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .secondaryLabel
+        label.textColor = .white
         label.text = "Current value"
         return label
     }()
@@ -34,13 +34,14 @@ final class HoldingSummaryView: BaseView {
     private let currentValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .white
         return label
     }()
     
     private let investmentTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .secondaryLabel
+        label.textColor = .white
         label.text = "Total investment"
         return label
     }()
@@ -48,13 +49,14 @@ final class HoldingSummaryView: BaseView {
     private let investmentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .white
         return label
     }()
     
     private let totalPnLTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .secondaryLabel
+        label.textColor = .white
         label.text = "Total P&L"
         return label
     }()
@@ -70,7 +72,7 @@ final class HoldingSummaryView: BaseView {
     private let todaysPnLTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .secondaryLabel
+        label.textColor = .white
         label.text = "Today's P&L"
         return label
     }()
@@ -194,12 +196,7 @@ private extension HoldingSummaryView {
             make.sameTopBottom(topView, 12)
         }
 
-        topView.backgroundColor = UIColor(
-            red: 200/255,
-            green: 200/255,
-            blue: 200/255,
-            alpha: 1
-        )
+        topView.backgroundColor = UIColor(hex: "0010C4")
     }
 }
 

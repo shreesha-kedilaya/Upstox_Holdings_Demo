@@ -15,7 +15,7 @@ final class HoldingsViewController: BaseViewController, HoldingServiceUIInput {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(AnyTableViewCell<HoldingRowView>.self, forCellReuseIdentifier: String(describing: AnyTableViewCell<HoldingRowView>.self))
-        tableView.backgroundColor = UIColor { $0.userInterfaceStyle == .dark ? .darkGray: .lightGray }
+        tableView.backgroundColor = UIColor(hex: "3A47D9")
         return tableView
     }()
     
@@ -62,7 +62,7 @@ final class HoldingsViewController: BaseViewController, HoldingServiceUIInput {
         super.viewDidAppear(animated)
     }
     
-    private var isSummaryHidden = false
+    private var isSummaryHidden = true
     
     @objc func didTapPNL() {
         isSummaryHidden.toggle()
@@ -81,7 +81,7 @@ extension HoldingsViewController {
         viewModel.setup()
         bind()
         layout()
-        view.backgroundColor = UIColor { $0.userInterfaceStyle == .dark ? .darkGray: .lightGray }
+        view.backgroundColor = UIColor(hex: "3A47D9")
     }
     
     func bind() {
@@ -155,7 +155,7 @@ extension HoldingsViewController {
             make.height(45 + UIApplication.keyWindowSafeAreaInsets().bottom)
         }
         
-        pnlView.backgroundColor = .gray
+        pnlView.backgroundColor = UIColor(hex: "3A47D9")
         
         errorLabel.makeConstraint { make in
             make.centerView(view)
@@ -172,6 +172,15 @@ extension HoldingsViewController {
             $0.top(view)
             $0.above(pnlView)
         }
+        
+        let bottom = summaryView.get(.bottom)
+        
+        Task {
+            bottom?.constant = summaryView.bounds.height * 1.2
+            view.layoutIfNeeded()
+        }
+        
+        pnlView.changeArrowup()
     }
     
     func showLoader() {

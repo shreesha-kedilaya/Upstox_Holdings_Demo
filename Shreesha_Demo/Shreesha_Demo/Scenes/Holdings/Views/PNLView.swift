@@ -23,14 +23,14 @@ final class PNLHeaderView: BaseView {
         let label = UILabel()
         label.text = "Profit & Loss*"
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .label
+        label.textColor = .white
         return label
     }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "chevron.down"))
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .secondaryLabel
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -103,8 +103,6 @@ private extension PNLHeaderView {
     }
     
     func layout() {
-        backgroundColor = .clear
-        
         // Left side: "Profit & Loss*  ▼"
         let leftStack = UIStackView(arrangedSubviews: [titleLabel, arrowImageView])
         leftStack.axis = .horizontal
@@ -124,19 +122,5 @@ private extension PNLHeaderView {
             $0.sameLeadingTrailing(self, 16)
             $0.top(self, 8)
         }
-    }
-}
-
-extension UIView {
-    func roundTopCorners(radius: CGFloat) {
-        let path = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: [.topLeft, .topRight],
-            cornerRadii: CGSize(width: radius, height: radius)
-        )
-        
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
     }
 }
