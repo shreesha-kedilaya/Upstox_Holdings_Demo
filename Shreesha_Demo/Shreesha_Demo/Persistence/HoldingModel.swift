@@ -6,15 +6,18 @@
 //
 import Foundation
 
+nonisolated
 struct HoldingsResponse: Codable, Sendable {
     let data: HoldingsData
 }
 
+nonisolated
 struct HoldingsData: Codable, Sendable {
     let userHolding: [Holding]
 }
 //
 
+nonisolated
 struct Holding: Codable, Sendable {
     
     let symbol: String
