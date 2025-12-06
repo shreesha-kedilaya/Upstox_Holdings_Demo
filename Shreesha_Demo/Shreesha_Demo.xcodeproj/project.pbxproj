@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223E51A12EE3ED4700B606CD /* LayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A02EE3ED4700B606CD /* LayoutKit */; };
+		223E51A42EE3ED5400B606CD /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A32EE3ED5400B606CD /* Networking */; };
 		227A28662EE2ACCB00B1F8ED /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 227A28652EE2ACCB00B1F8ED /* Networking */; };
 		227A28692EE2ACD000B1F8ED /* LayoutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 227A28682EE2ACD000B1F8ED /* LayoutKit */; };
 /* End PBXBuildFile section */
@@ -57,7 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223E51A12EE3ED4700B606CD /* LayoutKit in Frameworks */,
 				227A28662EE2ACCB00B1F8ED /* Networking in Frameworks */,
+				223E51A42EE3ED5400B606CD /* Networking in Frameworks */,
 				227A28692EE2ACD000B1F8ED /* LayoutKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +116,8 @@
 			packageProductDependencies = (
 				227A28652EE2ACCB00B1F8ED /* Networking */,
 				227A28682EE2ACD000B1F8ED /* LayoutKit */,
+				223E51A02EE3ED4700B606CD /* LayoutKit */,
+				223E51A32EE3ED5400B606CD /* Networking */,
 			);
 			productName = Shreesha_Demo;
 			productReference = 227A28212EE2AC9C00B1F8ED /* Shreesha_Demo.app */;
@@ -169,8 +175,8 @@
 			mainGroup = 227A28182EE2AC9C00B1F8ED;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				223E50B72EE2E78100B606CD /* XCLocalSwiftPackageReference "../Packages/LayoutKit" */,
-				223E50B82EE2E78500B606CD /* XCLocalSwiftPackageReference "../Packages/Networking" */,
+				223E519F2EE3ED4700B606CD /* XCLocalSwiftPackageReference "Packages/LayoutKit" */,
+				223E51A22EE3ED5400B606CD /* XCLocalSwiftPackageReference "Packages/Networking" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 227A28222EE2AC9C00B1F8ED /* Products */;
@@ -482,17 +488,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		223E50B72EE2E78100B606CD /* XCLocalSwiftPackageReference "../Packages/LayoutKit" */ = {
+		223E519F2EE3ED4700B606CD /* XCLocalSwiftPackageReference "Packages/LayoutKit" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/LayoutKit;
+			relativePath = Packages/LayoutKit;
 		};
-		223E50B82EE2E78500B606CD /* XCLocalSwiftPackageReference "../Packages/Networking" */ = {
+		223E51A22EE3ED5400B606CD /* XCLocalSwiftPackageReference "Packages/Networking" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Networking;
+			relativePath = Packages/Networking;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		223E51A02EE3ED4700B606CD /* LayoutKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LayoutKit;
+		};
+		223E51A32EE3ED5400B606CD /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
 		227A28652EE2ACCB00B1F8ED /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
