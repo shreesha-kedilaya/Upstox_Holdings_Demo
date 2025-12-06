@@ -303,5 +303,4 @@ final class HoldingViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.currentDisplayItems.value.isEmpty, "Items should still be empty when API fails")
         XCTAssertNil(viewModel.summaryDisplayItem.value, "Summary should be nil when API fails")
     }
-
 }

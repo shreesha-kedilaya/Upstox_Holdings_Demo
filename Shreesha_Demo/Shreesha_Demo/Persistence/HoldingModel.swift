@@ -6,7 +6,6 @@
 //
 import Foundation
 
-
 struct HoldingsResponse: Codable, Sendable {
     let data: HoldingsData
 }
@@ -94,7 +93,7 @@ struct Holding: Codable, Sendable {
 }
 
 extension Holding {
-    init?(from dbModel: HoldingDBModel) {
+    nonisolated init?(from dbModel: HoldingDBModel) {
         // Validate symbol (required)
         guard
             let symbol = dbModel.symbol,
