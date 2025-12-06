@@ -54,7 +54,6 @@ private extension HoldingViewModel {
     func handleViewLoad() {
         showLoader.send(true)
         
-        print("View loaded")
         Task { [weak self] in
             guard let self else { return }
             
@@ -63,8 +62,11 @@ private extension HoldingViewModel {
             
             try Task.checkCancellation()
             // 2. Call API
-            await self.callApi()
-            self.showLoader.send(false)
+            Task {
+                await self.callApi()
+                try Task.checkCancellation()
+                self.showLoader.send(false)
+            }
         }.store(in: &subscriptions)
     }
     
@@ -80,12 +82,12 @@ private extension HoldingViewModel {
     
     func updateItems(sorted: [Holding]) {
         if sorted.isEmpty {
-            currentDisplayItems.send(completion: .failure(NSError(domain: "Something went wrong", code: 2)))
+            currentDisplayItems.send([])
             showError.send((true, "Failed to load holdings"))
         } else {
+            showError.send((false, ""))
             currentDisplayItems.send(sorted.map { $0.getViewModel() })
             updateSummary(with: sorted)
-            showError.send((false, ""))
         }
     }
     

@@ -26,7 +26,7 @@ final class DatabaseService: DatabaseServicable, @unchecked Sendable {
                 context?.autosaveEnabled = true
             }
         } catch {
-            print("Error initializing database container:", error)
+            debugPrint("Error initializing database container:", error)
             // Consider throwing an error or providing a fallback mechanism here
         }
     }

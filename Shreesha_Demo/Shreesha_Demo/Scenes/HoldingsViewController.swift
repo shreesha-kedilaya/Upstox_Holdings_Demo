@@ -86,15 +86,19 @@ extension HoldingsViewController {
     
     func bind() {
         viewModel.currentDisplayItems
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [unowned self] completion in
                 switch completion {
                 case .finished:
+                    debugPrint("Finished")
                     break
                 case .failure(let failure):
                     errorLabel.isHidden = false
                     errorLabel.text = failure.localizedDescription
                 }
             },receiveValue: { [unowned self] value in
+                debugPrint("COming here -----")
                 dataSource.reload()
                 errorLabel.isHidden = true
             }).store(in: &subscriptions)
