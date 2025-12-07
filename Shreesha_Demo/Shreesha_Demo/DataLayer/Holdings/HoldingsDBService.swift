@@ -7,12 +7,6 @@
 
 import SwiftData
 
-protocol HoldingsDBServicing: AnyObject, Sendable {
-    func deleteHoldings() async throws
-    func replaceHoldings(with models: [HoldingDBModel]) async throws
-    func appendHoldings(_ models: [HoldingDBModel]) async throws
-    func fetchAllHoldings() async throws -> [HoldingDBModel]
-}
 
 @ModelActor
 actor HoldingsDBService: HoldingsDBServicing {
