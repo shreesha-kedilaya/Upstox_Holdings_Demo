@@ -10,7 +10,7 @@ import SwiftData
 
 
 @Model
-final class HoldingDBModel: Codable, Hashable, Sendable {
+final class HoldingDBModel: Codable, Hashable, @unchecked Sendable {
     
     @Attribute(.unique) var symbol: String?
     var quantity: Int?
