@@ -190,7 +190,6 @@ final class HoldingViewModelTests: XCTestCase {
 
         let mockService = MockHoldingService()
         mockService.fetchFromLocalStorageResult = .failure(MockError.someError)
-        // Use the class-level mockService / viewModel like CryptoCoinsTests
 
         // We don't expect any extra values after viewLoad
         let itemsExpectation = expectation(description: "no extra items emitted after viewLoad")

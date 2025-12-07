@@ -1,6 +1,5 @@
 //
 //  AnyTableViewCell.swift
-//  CryptoCoins
 //
 //  Created by Shreesha Kedlaya on 11/08/24.
 //

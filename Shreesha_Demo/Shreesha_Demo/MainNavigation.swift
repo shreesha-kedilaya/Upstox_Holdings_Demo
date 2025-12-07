@@ -1,6 +1,5 @@
 //
 //  MainNavigation.swift
-//  CryptoCoins
 //
 //  Created by Shreesha Kedlaya on 10/08/24.
 //

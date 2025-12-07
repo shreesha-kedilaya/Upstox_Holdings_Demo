@@ -1,6 +1,5 @@
 //
 //  LoaderView.swift
-//  CryptoCoins
 //
 //  Created by Shreesha Kedlaya on 04/12/25.
 //

@@ -1,6 +1,5 @@
 //
 //  Utility.swift
-//  CryptoCoins
 //
 //  Created by Shreesha Kedlaya on 11/08/24.
 //
@@ -9,10 +8,6 @@ import Foundation
 import UIKit
 import Combine
 
-@globalActor
-actor CryptoGlobalActor: GlobalActor {
-    static let shared = CryptoGlobalActor()
-}
 
 extension Collection {
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
