@@ -93,8 +93,10 @@ extension HoldingsViewController {
                 case .finished:
                     break
                 case .failure(let failure):
-                    errorLabel.isHidden = false
-                    errorLabel.text = failure.localizedDescription
+                    if viewModel.currentDisplayItems.value.isEmpty {
+                        errorLabel.isHidden = false
+                        errorLabel.text = failure.localizedDescription
+                    }
                 }
             },receiveValue: { [unowned self] value in
                 dataSource.reload()
@@ -111,8 +113,10 @@ extension HoldingsViewController {
             }).store(in: &subscriptions)
         viewModel.showError
             .sink(receiveValue: { [unowned self] (show, message) in
-                errorLabel.isHidden = !show
-                errorLabel.text = message
+                if viewModel.currentDisplayItems.value.isEmpty {
+                    errorLabel.isHidden = !show
+                    errorLabel.text = message
+                }
             }).store(in: &subscriptions)
         
         viewModel.summaryDisplayItem
